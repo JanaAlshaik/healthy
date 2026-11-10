@@ -1,0 +1,932 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+/* =====================================
+   RAFIQ - DARK THEME
+   Main Colors
+===================================== */
+
+:root {
+  --bg: #101B1E;
+  --surface: #192A2D;
+  --mint: #234B46;
+  --teal: #43BDB2;
+  --teal-dark: #55C9BD;
+  --ink: #F1F7F5;
+  --muted: #A7BCB7;
+  --line: #304448;
+
+  --red: #FF7770;
+  --red-bg: #382426;
+
+  --orange: #F5B957;
+  --orange-bg: #382F20;
+
+  --green-bg: #1D3B30;
+
+  --shadow: 0 10px 28px rgba(0, 0, 0, .20);
+}
+
+/* =====================================
+   GENERAL
+===================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Cairo", Tahoma, Arial, sans-serif;
+  line-height: 1.7;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+/* =====================================
+   TOP BAR
+===================================== */
+
+.topbar {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  background: var(--teal);
+  color: #102523;
+  border-radius: 14px;
+  font-size: 24px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.prototype-tag,
+.demo-label {
+  background: var(--mint);
+  color: var(--teal-dark);
+  border-radius: 30px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =====================================
+   APP LAYOUT
+===================================== */
+
+.app-shell {
+  width: min(100% - 28px, 760px);
+  margin: 10px auto 40px;
+}
+
+.page {
+  display: none;
+  animation: enter .22s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes enter {
+  from {
+    opacity: .4;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================
+   HOME HERO
+===================================== */
+
+.hero {
+  text-align: center;
+  padding: 34px 22px 28px;
+  background: linear-gradient(145deg, #192A2D, #203638);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+}
+
+.hero-icon {
+  width: 78px;
+  height: 78px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+  border-radius: 25px;
+  background: var(--teal);
+  color: #102523;
+  font-size: 38px;
+}
+
+.eyebrow {
+  color: var(--teal-dark);
+  font-size: 12px;
+  font-weight: 800;
+  margin: 0 0 5px;
+}
+
+.hero h1 {
+  max-width: 510px;
+  margin: 5px auto 10px;
+  font-size: clamp(24px, 5vw, 34px);
+  line-height: 1.45;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.hero .muted {
+  max-width: 530px;
+  margin: auto;
+  font-size: 14px;
+}
+
+/* =====================================
+   SECTION HEADINGS
+===================================== */
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin: 28px 2px 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 21px;
+}
+
+/* =====================================
+   ROLE CARDS
+===================================== */
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.role-card {
+  position: relative;
+  min-height: 166px;
+  padding: 19px 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  box-shadow: var(--shadow);
+  transition: .2s;
+}
+
+.role-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--teal);
+}
+
+.role-icon {
+  font-size: 31px;
+}
+
+.role-card strong {
+  font-size: 17px;
+}
+
+.role-card span:not(.role-icon):not(.card-arrow) {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.card-arrow {
+  position: absolute;
+  left: 13px;
+  top: 12px;
+  color: var(--teal-dark);
+}
+
+/* =====================================
+   NOTIFICATIONS
+===================================== */
+
+.notice {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 13px 15px;
+  border-radius: 15px;
+  margin: 18px 0;
+  font-size: 12px;
+}
+
+.notice p {
+  margin: 0;
+}
+
+.notice-icon {
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.notice.info {
+  background: #1C3043;
+  color: #B8D8F5;
+}
+
+.notice.warning {
+  background: var(--orange-bg);
+  color: #F5C979;
+}
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
+.back-link {
+  border: 0;
+  background: transparent;
+  color: var(--teal-dark);
+  cursor: pointer;
+  padding: 8px 0 18px;
+  font-weight: 700;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 12px;
+}
+
+.heading-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: var(--mint);
+  color: var(--teal-dark);
+  font-size: 25px;
+}
+
+.page-heading h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.page-heading .eyebrow {
+  margin-bottom: 0;
+}
+
+/* =====================================
+   PANELS
+===================================== */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 21px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: var(--shadow);
+}
+
+.panel h2 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.panel h3 {
+  font-size: 15px;
+  margin: 17px 0 8px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 15px;
+}
+
+/* =====================================
+   FORM INPUTS
+===================================== */
+
+label {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #101B1E;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 12px 13px;
+  outline: none;
+  min-width: 0;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #91AAA5;
+}
+
+select option {
+  background: #192A2D;
+  color: #F1F7F5;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(67, 189, 178, .15);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* =====================================
+   PARENT MEDICAL SECTION
+===================================== */
+
+.medical-section {
+  background: #203638;
+  border: 1px solid #345A57;
+  border-radius: 16px;
+  padding: 18px;
+  display: grid;
+  gap: 15px;
+}
+
+.medical-section h3 {
+  color: var(--teal-dark);
+  margin: 0;
+  font-size: 17px;
+}
+
+/* =====================================
+   CHECKBOX
+===================================== */
+
+
+
+  
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.btn {
+  border: 0;
+  border-radius: 13px;
+  padding: 12px 17px;
+  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: .18s;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  background: var(--teal);
+  color: #102523;
+}
+
+.btn.secondary {
+  background: #263B3D;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.btn.success {
+  background: #24523D;
+  color: #A7E8BD;
+}
+
+.btn.danger {
+  background: #B84242;
+  color: white;
+}
+
+.btn.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.form-message {
+  min-height: 20px;
+  color: var(--teal-dark);
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+
+/* =====================================
+   STUDENT CARD
+===================================== */
+
+.student-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #102523;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.student-main h2 {
+  margin: 0;
+}
+
+.student-main p {
+  color: var(--muted);
+  margin: 0;
+  font-size: 12px;
+}
+
+.status-pill {
+  font-size: 10px;
+  background: var(--orange-bg);
+  color: var(--orange);
+  padding: 5px 8px;
+  border-radius: 30px;
+}
+
+.student-details {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.student-details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.student-details span {
+  color: var(--muted);
+}
+
+.student-details strong {
+  text-align: left;
+  max-width: 65%;
+  overflow-wrap: anywhere;
+}
+
+/* =====================================
+   TEACHER QUESTIONS
+===================================== */
+
+.question-panel {
+  text-align: center;
+}
+
+.answer-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.answer-buttons .btn {
+  min-height: 52px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.panel-title-row h2 {
+  margin: 0;
+}
+
+.mini-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--green-bg);
+  color: #80D6A4;
+  font-weight: 900;
+}
+
+/* =====================================
+   MEDICAL PLAN
+===================================== */
+
+.plan-text {
+  background: #203638;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* =====================================
+   TIMER
+===================================== */
+
+.timer-card {
+  margin: 16px 0;
+  padding: 18px;
+  text-align: center;
+  background: #203638;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 17px;
+}
+
+.timer-card p {
+  margin-bottom: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.timer-card strong {
+  display: block;
+  font-size: 42px;
+  letter-spacing: 2px;
+  margin: 4px 0 10px;
+  direction: ltr;
+}
+
+.timer-actions {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+}
+
+.timer-actions .btn {
+  flex: 1;
+}
+
+.timer-card small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+/* =====================================
+   EMERGENCY PANEL
+===================================== */
+
+.emergency-panel {
+  border: 1px solid #704044;
+  background: #2B2024;
+}
+
+.emergency-symbol {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--red-bg);
+  color: var(--red);
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.emergency-panel h2 {
+  color: #FF9992;
+  margin: 5px 0;
+}
+
+.emergency-panel p:not(.eyebrow) {
+  color: #E2BDBB;
+  font-size: 13px;
+}
+
+/* =====================================
+   SCHOOL DASHBOARD
+===================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.stat {
+  background: #203638;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 8px;
+  text-align: center;
+}
+
+.stat strong {
+  display: block;
+  color: var(--teal-dark);
+  font-size: 25px;
+}
+
+.stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+/* =====================================
+   INVENTORY
+===================================== */
+
+.inventory-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+
+.inventory-item:last-child {
+  border-bottom: 0;
+}
+
+.inventory-item b {
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.inventory-ok {
+  color: #80D6A4;
+}
+
+.inventory-warn {
+  color: var(--orange);
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.global-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 10px;
+  padding: 5px 15px 25px;
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 560px) {
+
+  .topbar {
+    padding: 13px 16px;
+  }
+
+  .app-shell {
+    width: min(100% - 22px, 480px);
+    margin-top: 5px;
+  }
+
+  .hero {
+    padding: 27px 17px 23px;
+    border-radius: 22px;
+  }
+
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .role-card {
+    min-height: 92px;
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    text-align: right;
+    justify-items: start;
+    padding: 13px 16px;
+  }
+
+  .role-icon {
+    grid-row: span 2;
+    align-self: center;
+  }
+
+  .role-card strong {
+    align-self: end;
+  }
+
+  .role-card span:not(.role-icon):not(.card-arrow) {
+    align-self: start;
+  }
+
+  .card-arrow {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .student-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .status-pill {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .answer-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  
+/* Fix Consent Checkbox */
+
+#parentForm .check-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px;
+    color: #F1F7F5;
+}
+
+#parentForm .check-row input[type="checkbox"] {
+    appearance: auto !important;
+    -webkit-appearance: checkbox !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    margin: 0;
+    padding: 0;
+    flex: 0 0 18px;
+    accent-color: #43BDB2;
+    cursor: pointer;
+}
+
+
+/* Save Button */
+
+#parentForm button[type="submit"].btn.primary {
+    display: flex !important;
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    align-items: center;
+    background: #43BDB2 !important;
+    color: #102523 !important;
+    border: none !important;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#parentForm button[type="submit"].btn.primary:hover {
+    background: #55C9BD !important;
+}
+
+
+
+/* FINAL CHECKBOX FIX */
+
+#parentForm label.check-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+}
+
+#parentForm label.check-row > input[type="checkbox"] {
+    appearance: auto !important;
+    -webkit-appearance: checkbox !important;
+    display: inline-block !important;
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    flex: 0 0 18px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: initial !important;
+    border-radius: 3px !important;
+    background: initial !important;
+    accent-color: #43BDB2;
+}
+
+}

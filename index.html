@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4faf8">
+  <title>الاسم | بطاقة الطوارئ المدرسية</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" onclick="showPage('home'); return false;" aria-label="رفيق - الرئيسية">
+      <span class="brand-mark">♥</span>
+      <span><strong>الاسم</strong><small>سلامة الطفل أولويتنا</small></span>
+    </a>
+    
+  </header>
+
+  <main class="app-shell">
+    <!-- الصفحة الرئيسية -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-icon">♥</div>
+        <p class="eyebrow">رعاية أسرع، تواصل أوضح</p>
+        <h1>معًا لسلامة أطفال السكري في المدرسة</h1>
+       
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ابدأ من هنا</p>
+          <h2>اختر نوع المستخدم</h2>
+        </div>
+      </div>
+
+      <div class="role-grid">
+        <button class="role-card" onclick="showPage('parent')">
+          <span class="role-icon">👨‍👩‍👧</span>
+          <strong>الأهل</strong>
+          <span>إضافة بيانات الطفل وخطته</span>
+          <span class="card-arrow">←</span>
+        </button>
+        <button class="role-card" onclick="showPage('teacher')">
+          <span class="role-icon">👩‍🏫</span>
+          <strong>المعلم</strong>
+          <span>الوصول إلى بطاقة الطوارئ</span>
+          <span class="card-arrow">←</span>
+        </button>
+        <button class="role-card" onclick="showPage('school')">
+          <span class="role-icon">🏫</span>
+          <strong>المدرسة</strong>
+          <span>متابعة الجاهزية والأدوات</span>
+          <span class="card-arrow">←</span>
+        </button>
+      </div>
+
+    
+    </section>
+
+    <!-- صفحة الأهل -->
+    <section id="parent" class="page">
+      <button class="back-link" onclick="showPage('home')">→ الرئيسية</button>
+      <div class="page-heading">
+        <span class="heading-icon">👨‍👩‍👧</span>
+        <div><p class="eyebrow">مساحة الأهل</p><h1>بيانات الطفل</h1></div>
+      </div>
+      <p class="muted">أدخلوا المعلومات الأساسية وبيانات التواصل .</p>
+
+      <form id="parentForm" class="panel form-grid">
+        <label>اسم الطفل
+          <input id="childName" type="text" placeholder="مثال: سارة أحمد" required>
+        </label>
+        <div class="two-col">
+          <label>الصف الدراسي
+            <select id="childGrade">
+              <option>الرابع الابتدائي</option><option>الأول الابتدائي</option><option>الثاني الابتدائي</option><option>الثالث الابتدائي</option><option>الخامس الابتدائي</option><option>السادس الابتدائي</option>
+            </select>
+          </label>
+          <label>نوع السكري
+            <select id="diabetesType"><option>النوع الأول</option><option>النوع الثاني</option></select>
+          </label>
+        </div>
+        <label>اسم ولي الأمر
+          <input id="guardianName" type="text" placeholder="اسم ولي الأمر" >
+        </label>
+        <div class="two-col">
+          <label>رقم ولي الأمر
+            <input id="guardianPhone" type="tel" inputmode="tel" placeholder="05XXXXXXXX" >
+          </label>
+          <label>رقم الممرضة / المدرسة
+            <input id="nursePhone" type="tel" inputmode="tel" placeholder="رقم التواصل">
+          </label>
+        </div>
+        <div class="medical-section">
+
+        <h3>معلومات هبوط السكر</h3>
+
+        <label>حد هبوط السكر حسب الطبيب (mg/dL)
+            <input id="lowSugarLimit" type="number"
+            placeholder="أدخل القيمة المحددة من الطبيب">
+        </label>
+
+        <label>علاج هبوط السكر المعتمد من الطبيب
+            <select id="lowSugarTreatment">
+                <option value="" selected disabled>
+                    اختر العلاج حسب خطة الطبيب
+                </option>
+                <option>عصير تفاح 150 مل (نحو 15 غرام سكر)</option>
+                <option>3 أقراص جلوكوز</option>
+                <option>ملعقة كبيرة عسل</option>
+                <option>علاج آخر حسب الخطة الطبية</option>
+            </select>
+        </label>
+
+    </div>
+
+    <label>ملاحظة الطبيب
+        <textarea id="carePlan" rows="4"
+        placeholder=“أدخل ملاحظات الطبيب وتعليماته المعتمدة”></textarea>
+    </label>
+
+    <label class="check-row">
+        <input id="consent" type="checkbox">
+        أؤكد أن البيانات تجريبية أو لدي موافقة مناسبة على إدخالها.
+    </label>
+
+    <button type="submit" class="btn primary full">
+    حفظ البيانات
+</button>
+
+    <p id="parentMessage" class="form-message"></p>
+
+</form>
+    </section>
+
+    <!-- صفحة المعلم -->
+    <section id="teacher" class="page">
+      <button class="back-link" onclick="showPage('home')">→ الرئيسية</button>
+      <div class="page-heading">
+        <span class="heading-icon">👩‍🏫</span>
+        <div><p class="eyebrow">مساحة المعلم</p><h1>بطاقة الطوارئ للطالب</h1></div>
+      </div>
+      
+<div class="student-card panel">
+
+    <div class="student-avatar" id="studentInitial">ط</div>
+
+    <div class="student-main">
+        <h2 id="displayName">لم يتم تسجيل الطفل</h2>
+        <p id="displayGrade">الصف الدراسي · نوع السكري</p>
+    </div>
+
+    
+
+    <div class="student-details">
+
+        <div>
+            <span>جهة التواصل</span>
+            <strong id="displayGuardian">غير مضاف</strong>
+        </div>
+
+        <div>
+            <span>رقم ولي الأمر</span>
+            <strong id="displayPhone">غير مضاف</strong>
+        </div>
+
+        <div>
+            <span>حد هبوط السكر</span>
+            <strong id="displayLowSugarLimit">غير محدد</strong>
+        </div>
+
+        <div>
+            <span>علاج هبوط السكر</span>
+            <strong id="displayLowSugarTreatment">غير محدد</strong>
+        </div>
+
+        <div>
+            <span>ملاحظة الطبيب</span>
+            <strong id="displayPlan">لا توجد ملاحظات</strong>
+        </div>
+
+    </div>
+</div>
+
+      
+
+      <div class="panel question-panel">
+        <h2>هل الطالب واعٍ ويقدر يبلع؟</h2>
+        <div class="answer-buttons">
+          <button class="btn success" onclick="chooseConscious(true)">نعم </button>
+          <button class="btn danger" onclick="chooseConscious(false)">لا</button>
+        </div>
+      </div>
+
+      <div id="consciousPanel" class="panel hidden">
+        <div class="panel-title-row"><span class="mini-icon">✓</span><h2>الطالب واعٍ</h2></div>
+       
+       
+        <div class="care-steps">
+    <h3>خطوات التعامل حسب خطة الطالب</h3>
+    <ol>
+        <li> اجلسه و ابق معه . لا تتركه وحدة</li>
+        <li><span id="teacherTreatment">لم يتم تحديد العلاج</span></li>
+        <li><span id="teacherCarePlan">لا توجد تعليمات متابعة مسجلة</span></li>
+        <li>أبلغ ولي الأمر والممرضة.</li>
+    </ol>
+</div>
+        <div class="timer-card">
+         
+          <strong id="timerDisplay">15:00</strong>
+          <div class="timer-actions">
+            <button class="btn primary" id="timerButton" onclick="toggleTimer()">ابدأ المؤقت</button>
+            <button class="btn secondary" onclick="resetTimer()">إعادة ضبط</button>
+          </div>
+          
+        </div>
+        <button class="btn primary full" onclick="simulateAlert()">إظهار تأكيد إبلاغ الأهل والممرضة</button>
+        <p id="alertMessage" class="form-message" aria-live="polite"></p>
+      </div>
+
+      <div id="unconsciousPanel" class="panel emergency-panel hidden">
+        <div class="emergency-symbol">!</div>
+        <p class="eyebrow">حالة طارئة</p>
+        <h2>اطلب الإسعاف فورًا</h2>
+        <p>إذا كان الطفل فاقدًا للوعي أو لا يستجيب، اتصل بالإسعاف واتبع تعليمات موظف الطوارئ والخطة الطبية المعتمدة. لا تعطِ الطفل طعامًا أو شرابًا عن طريق الفم وهو فاقد للوعي.</p>
+        <a class="btn danger full" href="tel:997">اتصال بالإسعاف 997</a>
+        <button class="btn secondary full" onclick="simulateAlert()">تأكيد إبلاغ الأهل والممرضة</button>
+        <p id="emergencyMessage" class="form-message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- صفحة المدرسة -->
+    <section id="school" class="page">
+      <button class="back-link" onclick="showPage('home')">→ الرئيسية</button>
+      <div class="page-heading">
+        <span class="heading-icon">🏫</span>
+        <div><p class="eyebrow">مساحة المدرسة</p><h1>لوحة الجاهزية</h1></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title-row"><h2>ملخص الجاهزية</h2><span class="demo-label">بيانات مثال</span></div>
+        <div class="stats-grid">
+          <div class="stat"><strong>8</strong><span>طلاب لديهم بطاقة</span></div>
+          <div class="stat"><strong>6</strong><span>معلمون مدربون</span></div>
+          <div class="stat"><strong>3</strong><span>أدوات تحتاج متابعة</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>أدوات الطوارئ</h2>
+        <div class="inventory-item"><span>مستلزمات الإسعافات الأولية</span><b class="inventory-ok">متوفر</b></div>
+        <div class="inventory-item"><span>جهاز قياس السكر</span><b class="inventory-warn">يحتاج تحقق</b></div>
+        <div class="inventory-item"><span>وسائل التواصل مع الأهل</span><b class="inventory-ok">متوفر</b></div>
+        <div class="inventory-item"><span>خطة الطوارئ المعتمدة</span><b class="inventory-warn">تحتاج تحديث</b></div>
+      </div>
+      <div class="panel">
+        <h2>ملاحظات الإدارة</h2>
+        <p class="muted">تُراجع جاهزية الأدوات وتدريب الموظفين بشكل دوري بالتنسيق مع المختصين.</p>
+        <label>إضافة ملاحظة تجريبية
+          <textarea id="schoolNote" rows="3" placeholder="اكتب ملاحظة..."></textarea>
+        </label>
+        <button class="btn primary full" onclick="saveSchoolNote()">حفظ الملاحظة محليًا</button>
+        <p id="schoolMessage" class="form-message" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
